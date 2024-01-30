@@ -275,7 +275,6 @@ function MovieDetails({ selectId, onCloseMovie, onAddWatched, watched }) {
     function callback(e) {
       if (e.code === "Escape") {
         onCloseMovie();
-        console.log("closing");
       }
     }
 
