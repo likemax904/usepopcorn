@@ -71,7 +71,7 @@ export default function App() {
 
     handleCloseMovie();
     fetchData();
-
+    console.log(KEY);
     return () => {
       controller.abort();
     };
