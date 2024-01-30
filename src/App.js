@@ -5,6 +5,8 @@ import StarRating from "./StarRating";
 const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
+const KEY = process.env.API_KEY;
+
 export default function App() {
   const [movies, setMovies] = useState(tempMovieData);
   const [watched, setWatched] = useState([]);
@@ -44,7 +46,7 @@ export default function App() {
         setIsLoading(true);
         setError("");
         const res = await fetch(
-          `https://www.omdbapi.com/?apikey=${process.env.API_KEY}&s=${query}`,
+          `https://www.omdbapi.com/?apikey=${KEY}&s=${query}`,
           { signal: controller.signal }
         );
 
@@ -287,7 +289,7 @@ function MovieDetails({ selectId, onCloseMovie, onAddWatched, watched }) {
     async function getMovieDetails() {
       try {
         const res = await fetch(
-          `https://www.omdbapi.com/?apikey=${process.env.API_KEY}&i=${selectId}`
+          `https://www.omdbapi.com/?apikey=${KEY}&i=${selectId}`
         );
         const data = await res.json();
         setMovie(data);
