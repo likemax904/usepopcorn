@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { tempMovieData } from "./data/tempMovieData";
 //import { tempWatchedData } from "./data/tempWatchedData";
 import StarRating from "./StarRating";
+
 const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
-const KEY = process.env.API_KEY;
+const KEY = process.env.REACT_APP_API_KEY;
 
 export default function App() {
   const [movies, setMovies] = useState(tempMovieData);
